@@ -8,6 +8,7 @@ st.markdown("""# The Laundromat
 batch-2053-london""")
 
 df = pd.read_csv('/Users/leahredon/code/AlcaRmsp/the_laundromat/raw_data/data.csv')
+df_sample = df[1:10]
 
 # this slider allows the user to select a number of lines
 # to display in the dataframe
@@ -15,6 +16,6 @@ df = pd.read_csv('/Users/leahredon/code/AlcaRmsp/the_laundromat/raw_data/data.cs
 line_count = st.slider('Select a line count', 1, 10, 3)
 
 # and used to select the displayed lines
-head_df = df.head(line_count)
+head_df = df_sample.head(line_count)
 
 head_df
