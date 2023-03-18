@@ -81,4 +81,6 @@ if proceed == "Check transaction":
 
 
     expander = st.expander("ML Model")
-    expander.radio("Please select a model", ["Logistic Regression", "Decision Tree", "Random Forest","XGBoost"])
+    model = expander.radio("Please select a model", ["Logistic Regression", "Decision Tree", "Random Forest","XGBoost"])
+
+

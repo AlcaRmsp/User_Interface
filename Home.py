@@ -3,10 +3,15 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
+st.set_page_config(
+    page_title="Quick reference", # => Quick reference - Streamlit
+    page_icon="🐍",
+    layout="centered", # wide
+    initial_sidebar_state="auto") # collapsed
+
 st.markdown("""# The Laundromat
 ## Alicia Rémont Ospina, Claudia Jovellar, Tajania Kbabra, Leah Redon
-batch-2053-london""")
-
+batch-1053-london""")
 
 
 # df = pd.read_csv('/Users/leahredon/code/AlcaRmsp/the_laundromat/raw_data/data.csv')

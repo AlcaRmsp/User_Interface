@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-@st.cache
+@st.cache_data
 def get_line_chart_data():
 
     return pd.DataFrame(
