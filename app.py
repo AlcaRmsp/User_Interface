@@ -4,9 +4,13 @@ from streamlit.components.v1 import html
 import pandas as pd
 import pickle
 
+
 amount = 0
 recipient = "None"
 proceed = "None"
+
+# st.markdown(" :violet[# Transaction Generator], and this is **:blue[colored]** and bold.")
+
 st.markdown("""# Transaction Generator""")
 
 html_temp = """
@@ -36,7 +40,7 @@ if "visibility" not in st.session_state:
     st.session_state.visibility = "visible"
     st.session_state.disabled = False
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     expander = st.expander("Transaction Type")
@@ -62,12 +66,11 @@ with col3:
 
 recipient_type = ["That bank that just acquired SVB UK for £1", "Al Capone", "Pablo Escobar","Mum"]
 
-with col4:
-    if recipient in recipient_type:
-        proceed = st.expander("How would you like to proceed?")
-        proceed = proceed.radio("Please select one", ["None", "Check transaction", "Submit transaction"])
-    else:
-        st.text("")
+if recipient in recipient_type:
+    proceed = st.expander("How would you like to proceed?")
+    proceed = proceed.radio("Please select one", ["None", "Check transaction", "Submit transaction"])
+else:
+    st.text("")
 
 proceed_options = ["Check transaction", "Submit transaction"]
 
