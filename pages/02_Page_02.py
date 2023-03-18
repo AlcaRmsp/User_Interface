@@ -3,8 +3,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-
-@st.cache
+@st.cache_data
 def get_dataframe_data():
 
     return pd.DataFrame(

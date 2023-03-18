@@ -5,7 +5,7 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 import time
 
-#Gives loading status
+#Gives progress status
 with st.spinner('Wait for it...'):
     time.sleep(5)
 st.success('Done!')
