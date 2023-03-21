@@ -145,13 +145,13 @@ if proceed == "Check transaction":
     modelname = expander.radio("Please select a model", ["Basic model (Logistic Regression)", "Decision Tree", "Random Forest","XGBoost"])
 
     if modelname == "Basic model (Logistic Regression)":
-        model = pickle.load(open("Models/LogisticRegression.pickle","rb"))
+        model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/LogisticRegression.pickle","rb"))
     if modelname == "Decision Tree":
-        model = pickle.load(open("Models/DecisionTreeClassifier.pickle","rb"))
+        model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/DecisionTreeClassifier.pickle","rb"))
     if modelname == "Random Forest":
-        model = pickle.load(open("Models/RandomForestClassifier.pickle","rb"))
+        model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/RandomForestClassifier.pickle","rb"))
     if modelname == "XGBoost":
-        model = pickle.load(open("Models/XGBClassifier.pickle","rb"))
+        model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/XGBClassifier.pickle","rb"))
 
     if st.button('Calculate'):
         if model.predict(X) == 1:
