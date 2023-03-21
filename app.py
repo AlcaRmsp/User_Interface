@@ -74,7 +74,6 @@ else:
 
 proceed_options = ["Check transaction", "Submit transaction"]
 
-
 if transaction_type == "Transfer":
     type_transfer = 1
 else:
@@ -95,7 +94,6 @@ if transaction_type == "Debit":
     type_debit = 1
 else:
     type_debit = 0
-
 
 
 if recipient == 'Mum':
@@ -132,29 +130,9 @@ X = pd.DataFrame({'step': 159,
                   'type_PAYMENT': type_payment,
                   'type_TRANSFER': type_transfer}, index=[0])
 if proceed == "Check transaction":
-    st.markdown("""# Models""")
+    model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/LogisticRegression.pickle","rb"))
 
-    html_temp = """
-                    <div style="background-color:{};padding:1px">
-
-                    </div>
-                    """
-
-
-    expander = st.expander("ML Model")
-    modelname = expander.radio("Please select a model", ["Basic model (Logistic Regression)", "Decision Tree", "Random Forest","XGBoost"])
-
-    if modelname == "Basic model (Logistic Regression)":
-        model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/LogisticRegression.pickle","rb"))
-    if modelname == "Decision Tree":
-        model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/DecisionTreeClassifier.pickle","rb"))
-    if modelname == "Random Forest":
-        model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/RandomForestClassifier.pickle","rb"))
-    if modelname == "XGBoost":
-        model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/XGBClassifier.pickle","rb"))
-
-    if st.button('Calculate'):
-        if model.predict(X) == 1:
-            st.image("/Users/leahredon/code/AlcaRmsp/User_Interface/thats-fraud-and-youre-a-criminal-david.gif")
-        else:
-            st.image("/Users/leahredon/code/AlcaRmsp/User_Interface/mother_teresa.jpeg")
+    if model.predict(X) == 1:
+        st.image("/Users/leahredon/code/AlcaRmsp/User_Interface/thats-fraud-and-youre-a-criminal-david.gif")
+    else:
+        st.image("/Users/leahredon/code/AlcaRmsp/User_Interface/mother_teresa.jpeg")
