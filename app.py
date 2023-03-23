@@ -130,9 +130,9 @@ X = pd.DataFrame({'step': 159,
                   'type_PAYMENT': type_payment,
                   'type_TRANSFER': type_transfer}, index=[0])
 if proceed == "Check transaction":
-    model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/LogisticRegression.pickle","rb"))
+    model = pickle.load(open("Models/LogisticRegression.pickle","rb"))
 
     if model.predict(X) == 1:
-        st.image("/Users/leahredon/code/AlcaRmsp/User_Interface/thats-fraud-and-youre-a-criminal-david.gif")
+        st.image("thats-fraud-and-youre-a-criminal-david.gif")
     else:
-        st.image("/Users/leahredon/code/AlcaRmsp/User_Interface/mother_teresa.jpeg")
+        st.image("mother_teresa.jpeg")
