@@ -60,11 +60,11 @@ with col2:
 with col3:
     if amount > 0:
          recipient = st.expander("Recipient")
-         recipient = recipient.radio("Please select one", ["None","Claudia", "Alicia", "Tajania","Mum"])
+         recipient = recipient.radio("Please select one", ["None","Claudia", "Alicia", "Tajania","That bank that just acquired SVB UK for £"])
     else:
         st.text("")
 
-recipient_type = ["Alicia", "Tajania", "Claudia","Mum"]
+recipient_type = ["Alicia", "Tajania", "Claudia","That bank that just acquired SVB UK for £"]
 
 if recipient in recipient_type:
     proceed = st.expander("How would you like to proceed?")
@@ -96,7 +96,7 @@ else:
     type_debit = 0
 
 
-if recipient == 'Mum':
+if recipient == 'That bank that just acquired SVB UK for £':
     recipient_encoded = 1733924
 else:
     recipient_encoded = 0
