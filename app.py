@@ -60,11 +60,11 @@ with col2:
 with col3:
     if amount > 0:
          recipient = st.expander("Recipient")
-         recipient = recipient.radio("Please select one", ["None","That bank that just acquired SVB UK for £1", "Al Capone", "Pablo Escobar","Mum"])
+         recipient = recipient.radio("Please select one", ["None","Claudia", "Alicia", "Tajania","Mum"])
     else:
         st.text("")
 
-recipient_type = ["That bank that just acquired SVB UK for £1", "Al Capone", "Pablo Escobar","Mum"]
+recipient_type = ["Alicia", "Tajania", "Claudia","Mum"]
 
 if recipient in recipient_type:
     proceed = st.expander("How would you like to proceed?")
@@ -100,15 +100,15 @@ if recipient == 'Mum':
     recipient_encoded = 1733924
 else:
     recipient_encoded = 0
-if recipient == 'That bank that just acquired SVB UK for £1':
+if recipient == 'Alicia':
     recipient_encoded = 439685
 else:
     recipient_encoded = 0
-if recipient == 'Al Capone':
+if recipient == 'Tajania':
     recipient_encoded = 1662094
 else:
     recipient_encoded = 0
-if recipient == 'Pablo Escobar':
+if recipient == 'Claudia':
     recipient_encoded = 828919
 else:
     recipient_encoded = 0
@@ -130,9 +130,9 @@ X = pd.DataFrame({'step': 159,
                   'type_PAYMENT': type_payment,
                   'type_TRANSFER': type_transfer}, index=[0])
 if proceed == "Check transaction":
-    model = pickle.load(open("Models/RandomForestClassifier.pickle","rb"))
+    model = pickle.load(open("/Users/leahredon/code/AlcaRmsp/User_Interface/Models/LogisticRegression.pickle","rb"))
 
     if model.predict(X) == 1:
-        st.image("thats-fraud-and-youre-a-criminal-david.gif")
+        st.image("/Users/leahredon/code/AlcaRmsp/User_Interface/thats-fraud-and-youre-a-criminal-david.gif")
     else:
-        st.image("mother_teresa.jpeg")
+        st.image("/Users/leahredon/code/AlcaRmsp/User_Interface/mother_teresa.jpeg")
