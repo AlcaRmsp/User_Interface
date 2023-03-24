@@ -51,11 +51,9 @@ with col2:
     if transaction_type in ex_type:
         amount = st.text_input('Amount', 0)
         print(amount)
-        amount = int(amount)
+        amount = float(amount)
     else:
         st.text("")
-
-# amount_entered = ["None","1000", "2000", "5000","10000"]
 
 with col3:
     if amount > 0:
