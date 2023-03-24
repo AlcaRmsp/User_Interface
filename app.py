@@ -25,7 +25,7 @@ with st.sidebar:
     """)
     st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
     st.markdown("""
-    # How does it work
+    # How does it work?
     Simply enter some details of a transaction you'd like to make and we'll tell you if you're a criminal or not.
     """)
     st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
@@ -68,11 +68,11 @@ recipient_type = ["Alicia", "Tajania", "Claudia","That bank that just acquired S
 
 if recipient in recipient_type:
     proceed = st.expander("How would you like to proceed?")
-    proceed = proceed.radio("Please select one", ["None", "Check transaction", "Submit transaction"])
+    proceed = proceed.radio("Please select one", ["None", "Submit transaction"])
 else:
     st.text("")
 
-proceed_options = ["Check transaction", "Submit transaction"]
+proceed_options = ["Submit transaction"]
 
 if transaction_type == "Transfer":
     type_transfer = 1
@@ -129,7 +129,7 @@ X = pd.DataFrame({'step': 159,
                   'type_DEBIT': type_debit,
                   'type_PAYMENT': type_payment,
                   'type_TRANSFER': type_transfer}, index=[0])
-if proceed == "Check transaction":
+if proceed == "Submit transaction":
     model = pickle.load(open("Models/LogisticRegression.pickle","rb"))
 
     if model.predict(X) == 1:
